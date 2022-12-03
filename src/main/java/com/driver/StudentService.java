@@ -35,7 +35,7 @@ public class StudentService {
         return studentRepository.findStudentsFromTeacher(teacher);
     }
 
-    public List<String> findAllStudents() {
+    public List<String> findAllStudentss() {
         return studentRepository.findAllStudents();
     }
 

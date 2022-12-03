@@ -59,7 +59,7 @@ public class StudentController {
 
     @GetMapping("/get-all-students")
     public ResponseEntity<List<String>> findAllStudents() {
-        List<String> students = studentService.findAllStudents();
+        List<String> students = studentService.findAllStudentss();
         return new ResponseEntity<>(students, HttpStatus.CREATED);
     }
 
