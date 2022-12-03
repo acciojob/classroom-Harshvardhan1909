@@ -52,9 +52,9 @@ public class StudentController {
     }
 
     @GetMapping("/get-students-by-teacher-name/{teacher}")
-    public ResponseEntity<String> getStudentsByTeacherName(@PathVariable String teacher) {
-     //   List<String> students = studentService.findStudentsFromTeacher(teacher);
-        return new ResponseEntity<>("students", HttpStatus.CREATED);
+    public ResponseEntity <List<String>> getStudentsByTeacherName(@PathVariable String teacher) {
+        List<String> students = studentService.findStudentsFromTeacher(teacher);
+        return new ResponseEntity<>( students, HttpStatus.CREATED);
     }
 
     @GetMapping("/get-all-students")
