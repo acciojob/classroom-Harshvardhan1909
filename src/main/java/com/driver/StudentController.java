@@ -59,8 +59,8 @@ public class StudentController {
 
     @GetMapping("/get-all-students")
     public ResponseEntity<List<String>> findAllStudents() {
-        List<String>Students= studentService.findAllStudents();
-        return new ResponseEntity<>( Students,HttpStatus.CREATED);
+        List<String>students= studentService.findAllStudents();
+        return new ResponseEntity<>( students,HttpStatus.CREATED);
     }
 
     @DeleteMapping("/delete-teacher-by-name")
