@@ -57,11 +57,11 @@ public class StudentController {
         return new ResponseEntity<>( students, HttpStatus.CREATED);
     }
 
-//    @GetMapping("/get-all-students")
-//    public ResponseEntity<List<String>> findAllStudents() {
-//        List<String> students = studentService.findAllStudentss();
-//        return new ResponseEntity<>(students, HttpStatus.CREATED);
-//    }
+    @GetMapping("/get-all-students")
+    public ResponseEntity findAllStudents() {
+
+        return new ResponseEntity<>(studentService.findAllStudentss(), HttpStatus.CREATED);
+    }
 
     @DeleteMapping("/delete-teacher-by-name")
     public ResponseEntity<String> deleteTeacherByName(@RequestParam String teacher) {
