@@ -45,22 +45,22 @@ public class StudentController {
         return new ResponseEntity<>(student, HttpStatus.CREATED);
     }
 
-//    @GetMapping("/get-teacher-by-name/{name}")
-//    public ResponseEntity<Teacher> getTeacherorByName(@PathVariable String name) {
-//        com.driver.Teacher teacher = studentService.findTeacher(name);
-//        return new ResponseEntity<>(teacher, HttpStatus.CREATED);
-//    }
+    @GetMapping("/get-teacher-by-name/{name}")
+    public ResponseEntity<Teacher> getTeacherorByName(@PathVariable String name) {
+        com.driver.Teacher teacher = studentService.findTeacher(name);
+        return new ResponseEntity<>(teacher, HttpStatus.CREATED);
+    }
 
     @GetMapping("/get-students-by-teacher-name/{teacher}")
-    public ResponseEntity <List<String>> getStudentsByTeacherName(@PathVariable String teacher) {
+    public ResponseEntity<List<String>> getStudentsByTeacherName(@PathVariable String teacher) {
         List<String> students = studentService.findStudentsFromTeacher(teacher);
         return new ResponseEntity<>( students, HttpStatus.CREATED);
     }
 
     @GetMapping("/get-all-students")
-    public ResponseEntity findAllStudents() {
-
-        return new ResponseEntity<>(studentService.findAllStudentss(), HttpStatus.CREATED);
+    public ResponseEntity<List<String>> findAllStudents() {
+        List<String>Students= studentService.findAllStudents();
+        return new ResponseEntity<>( Students,HttpStatus.CREATED);
     }
 
     @DeleteMapping("/delete-teacher-by-name")

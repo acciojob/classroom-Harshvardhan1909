@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 public class StudentService {
 
     @Autowired
-    com.driver.StudentRepository studentRepository;
+    StudentRepository studentRepository;
 
     public void addStudent(Student student) {
         studentRepository.saveStudent(student);
@@ -35,7 +35,7 @@ public class StudentService {
         return studentRepository.findStudentsFromTeacher(teacher);
     }
 
-    public List<String> findAllStudentss() {
+    public List<String> findAllStudents() {
         return studentRepository.findAllStudents();
     }
 
