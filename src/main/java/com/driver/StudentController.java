@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("Student")
 public class StudentController {
     @Autowired
-    com.driver.StudentService studentService;
+    StudentService studentService;
 
     @PostMapping("/add-student")
     public ResponseEntity<String> addStudent(@RequestBody com.driver.Student student) {
@@ -46,7 +46,7 @@ public class StudentController {
     }
 
     @GetMapping("/get-teacher-by-name/{name}")
-    public ResponseEntity<com.driver.Teacher> getTeacherorByName(@PathVariable String name) {
+    public ResponseEntity<Teacher> getTeacherorByName(@PathVariable String name) {
         com.driver.Teacher teacher = studentService.findTeacher(name);
         return new ResponseEntity<>(teacher, HttpStatus.CREATED);
     }
