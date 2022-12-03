@@ -46,7 +46,7 @@ public class StudentController {
     }
 
     @GetMapping("/get-teacher-by-name/{name}")
-    public ResponseEntity<Teacher> getTeacherorByName(@PathVariable String name) {
+    public ResponseEntity<com.driver.Teacher> getTeacherByName(@PathVariable String name) {
         com.driver.Teacher teacher = studentService.findTeacher(name);
         return new ResponseEntity<>(teacher, HttpStatus.CREATED);
     }
