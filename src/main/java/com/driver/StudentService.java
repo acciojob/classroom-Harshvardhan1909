@@ -1,49 +1,51 @@
 package com.driver;
 
-import java.util.*;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
-@Service
-public class StudentService {
+import java.util.ArrayList;
+import java.util.List;
 
+@Service
+@Component
+public class StudentService {
     @Autowired
     StudentRepository studentRepository;
 
-    public void addStudent(Student student) {
-        studentRepository.saveStudent(student);
+    public void addStudentToDB(Student student){
+        studentRepository.addStudentInDB(student);
     }
 
-    public void addTeacher(Teacher teacher) {
-        studentRepository.saveTeacher(teacher);
+    public void addTeacherToDB(Teacher teacher){
+        studentRepository.addTeacherInDB(teacher);
     }
 
-    public void createStudentTeacherPair(String student, String teacher) {
-        studentRepository.saveStudentTeacherPair(student, teacher);
+    public void addStudentTeacherPairToDB(String studentName, String teacherName){
+        studentRepository.addStudentTeacherPairInDB(studentName, teacherName);
     }
 
-    public Student findStudent(String studentName) {
-        return studentRepository.findStudent(studentName);
+    public Student getStudentObject(String studentName){
+        return studentRepository.getStudentObjectFromDB(studentName);
     }
 
-    public Teacher findTeacher(String teacherName) {
-        return studentRepository.findTeacher(teacherName);
+    public Teacher getTeacherObject(String teacherName){
+        return studentRepository.getTeacherObjectFromDB(teacherName);
     }
 
-    public List<String> findStudentsFromTeacher(String teacher) {
-        return studentRepository.findStudentsFromTeacher(teacher);
+    public List<String> getListOfStudents(String teacherName){
+        return new ArrayList<>(studentRepository.getStudentListFromDB(teacherName));
     }
 
-    public List<String> findAllStudents() {
-        return studentRepository.findAllStudents();
+    public List<String> getListOfAllStudents(){
+        return new ArrayList<>(studentRepository.getListOfAllStudentFromDB());
     }
 
-    public void deleteTeacher(String teacher) {
-        studentRepository.deleteTeacher(teacher);
+    public void deleteStudenTeacherPair(String teacherName){
+        studentRepository.deleteTeacherStudentPairFromDB(teacherName);
     }
 
-    public void deleteAllTeachers() {
-        studentRepository.deleteAllTeacher();
+    public void deleteAllStudentTeacher(){
+        studentRepository.deleteAllStudentTeacher();
     }
 }
